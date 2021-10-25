@@ -2,16 +2,16 @@
 name: Send SNS Message
 description: Sends a message to an SNS Topic
 inputs:
-  aws-access-key-id:
+  aws_access_key_id:
     description: AWS Access Key
     required: true
-  aws-secret-access-key:
+  aws_secret_access_key:
     description: Secret access key
     required: true
-  aws-region:
+  aws_region:
     description: AWS Region
     required: true
-  sns-topic-arn:
+  sns_topic_arn:
     description: ARN of SNS topic to send to
     required: true
   message:
@@ -25,9 +25,3 @@ outputs:
 runs:
   using: docker
   image: "Dockerfile"
-  env:
-    AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-    AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
-    AWS_REGION: ${{ inputs.aws-region }}
-    MESSAGE: ${{ inputs.message }}
-    SNS_TOPIC_ARN: ${{ inputs.sns-topic-arn }}
